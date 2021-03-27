@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <p>{{ message }}</p>
+    <button type=button>はじめる</button>
   </div>
 </template>
 
@@ -17,6 +18,10 @@ export default {
 <style scoped>
 p {
   font-size: 2em;
+  text-align: center;
+}
+button{
+  font-size: 30px;
   text-align: center;
 }
 </style>
