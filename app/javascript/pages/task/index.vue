@@ -1,28 +1,51 @@
 <template>
-  <div id='app' class="d-flex flex-column min-vh-100">
+  <div class="d-flex flex-column min-vh-100">
     <header class="mb-auto">
       <nav class="navbar navbar-dark bg-dark">
         <span class="nacbar-brand mb-0 h1">{{ title }}</span>
       </nav>
     </header>
-  <div class="row">
-    <div class="col-12 col-lg-4">
-    <h3>タスクを管理しよう</h3>
-    <div class="mt-4">生活や仕事に関するタスクを見える化して抜け漏れを防ぎましょう。</div>
-    <router-link to="/tasks" class="btn btn-dark mt-5">はじめる</router-link>
-  </div>
-  <footer class="mt-auto text-center">
-    <small>Copyright &copy; 2020. RUNTEQ</small>
-  </footer>
+    <div class="d-flex">
+      <div class="col-4 bg-light rounded shadow m-3 p-3">
+        <div class="h4">TODO</div>
+        <div v-for="task in tasks" :key="task.id" class="bg-white border shadow-sm rounded my-2 p-4">
+          <span>{{ task.title }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <router-link :to="{ name: 'TopIndex' }" class="btn btn-dark mt-5">戻る<router-link>
+    </div>
+    <footer class="mt-auto text-center">
+      <small>Copyright &copy; 2020. RUNTEQ</small>
+    </footer>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Top",
+  name: "TaskIndex",
   data(){
     return {
-      title: "タスク管理アプリ"
+      title: "タスク管理アプリ",
+      tasks: [
+        {
+          id: 1,
+          title: "スーパーに買いものにいく"
+        },
+        {
+          id: 2,
+          title: "子供の迎えに行く"
+        },
+        {
+          id: 3,
+          title: "子供の迎えにいく~"
+        },
+        {
+          id: 4,
+          title: "ゴミ出しをする"
+        },
+      ]
     }
   }
 }
