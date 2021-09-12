@@ -20,24 +20,17 @@ export default {
   data(){
     return {
       title: "タスク管理アプリ",
-      tasks: [
-        {
-          id: 1,
-          title: "スーパーに買いものにいく"
-        },
-        {
-          id: 2,
-          title: "子供の迎えに行く"
-        },
-        {
-          id: 3,
-          title: "子供の迎えにいく~"
-        },
-        {
-          id: 4,
-          title: "ゴミ出しをする"
-        },
-      ]
+      tasks: []
+    }
+  },
+  created() {
+    this.fetchTasks();
+  },
+  methods: {
+    fetchTasks() {
+      this.$axios.get("tasks")
+      .then(res => this.tasks = res.data)
+      .catch(err => console.log(err.status));
     }
   }
 }
