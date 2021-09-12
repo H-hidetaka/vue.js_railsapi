@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="text-center">
-      <router-link :to="{ name: 'TopIndex' }" class="btn btn-dark mt-5">戻る<router-link>
+      <router-link :to="{ name: 'TopIndex' }" class="btn btn-dark mt-5">戻る</router-link>
     </div>
     <footer class="mt-auto text-center">
       <small>Copyright &copy; 2020. RUNTEQ</small>
