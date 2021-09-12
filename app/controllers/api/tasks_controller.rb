@@ -3,7 +3,7 @@ class Api::TasksController < ApplicationController
 
   def index
     @tasks = Task.all
-    render json:@tasks
+    render json: @tasks
   end
 
   def show
