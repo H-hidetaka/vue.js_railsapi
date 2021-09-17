@@ -8,8 +8,12 @@
 
 <script>
 export default {
-  name: "TheHeader",
-  title: "タスク管理アプリ"
+  data() {
+    return{
+      name: "TheHeader",
+      title: "タスク管理アプリ"
+    }
+  }
 }
 </script>
 

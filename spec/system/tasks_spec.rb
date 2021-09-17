@@ -20,13 +20,13 @@ RSpec.describe "タスク管理", type: :system do
     it 'タスクページからタスクページに遷移できる' do
       visit root_path
       click_link 'はじめる'
-      expect(current_path).to eq('/tasks'), 'タスクページに遷移できる' do
+      expect(current_path).to eq('/tasks'), 'タスクページに遷移できる'
     end
 
     it 'タスクページからトップページに遷移できる' do
       visit '/tasks'
       click_link '戻る'
-      expect(current_path).to eq('/') 'トップページに遷移できていません'
+      expect(current_path).to eq('/'), 'トップページに遷移できていません'
     end
 
     it '作成したタスクがタスクページに表示されている' do
@@ -56,6 +56,4 @@ RSpec.describe "タスク管理", type: :system do
       end
       expect(page).to have_no_button('閉じる'), 'タスク詳細モーダルが閉じられていません'
     end
-  end
-
 end

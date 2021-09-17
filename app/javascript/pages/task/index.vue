@@ -14,12 +14,12 @@
         </div>
       </div>
     </div>
-    <transition name="fade">
-      <TaskDetailModal v-if="isVisibleTaskDetailModal" :task="taskDetail" @close-modal="handleCloseTaskDetailModal" />
-    </transition>
     <div class="text-center">
       <router-link :to="{ name: 'TopIndex' }" class="btn btn-dark mt-5">戻る</router-link>
     </div>
+    <transition name="fade">
+      <TaskDetailModal v-if="isVisibleTaskDetailModal" :task="taskDetail" @close-modal="handleCloseTaskDetailModal" />
+    </transition>
   </div>
 </template>
 
@@ -39,6 +39,10 @@ export default {
     }
   },
   created() {
+    this.fetchTasks();
+  },
+  methods: {
+    fetchTasks() {
       this.$axios.get("tasks")
         .then(res => this.tasks = res.data)
         .catch(err => console.log(err.status));
@@ -51,6 +55,7 @@ export default {
       this.isVisibleTaskDetailModal = false;
       this.taskDetail = {};
     }
+  }
 }
 </script>
 
@@ -61,4 +66,3 @@ export default {
 .fade-enter, .fade-leave-to {
   opacity: 0;
 }
-</style>
