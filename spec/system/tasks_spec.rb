@@ -288,5 +288,4 @@ RSpec.describe "タスク管理", type: :system do
     expect(page).to_not have_content('AAタスク'), 'タスクが表示されています'
     expect(page).to_not have_content('ABタスク'), 'タスクが表示されています'
   end
-
 end
