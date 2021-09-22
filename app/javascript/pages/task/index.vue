@@ -3,45 +3,61 @@
     <div class="row">
       <TaskList
         :tasks="todoTasks"
-        taskListId="todo-list"
+        task-list-id="todo-list"
         @handleShowTaskDetailModal="handleShowTaskDetailModal"
       >
-        <template v-slot:header>
-          <div class="h4">TODO</div>
+        <template #header>
+          <div class="h4">
+            TODO
+          </div>
         </template>
       </TaskList>
       <TaskList
         :tasks="doingTasks"
-        taskListId="doing-list"
+        task-list-id="doing-list"
         @handleShowTaskDetailModal="handleShowTaskDetailModal"
       >
-        <template v-slot:header>
-          <div class="h4">DOING</div>
+        <template #header>
+          <div class="h4">
+            DOING
+          </div>
         </template>
       </TaskList>
       <TaskList
         :tasks="doneTasks"
-        taskListId="done-list"
+        task-list-id="done-list"
         @handleShowTaskDetailModal="handleShowTaskDetailModal"
       >
-        <template v-slot:header>
-          <div class="h4">DONE</div>
+        <template #header>
+          <div class="h4">
+            DONE
+          </div>
         </template>
       </TaskList>
     </div>
     <div class="text-center">
-      <button class="btn btn-secondary" @click="handleShowTaskCreateModal">タスクを追加</button>
+      <button
+        class="btn btn-secondary"
+        @click="handleShowTaskCreateModal"
+      >
+        タスクを追加
+      </button>
     </div>
     <div class="text-center">
-      <router-link :to="{ name: 'TopIndex' }" class="btn btn-dark mt-5">戻る</router-link>
+      <router-link
+        :to="{ name: 'TopIndex' }"
+        class="btn btn-dark mt-5"
+      >
+        戻る
+      </router-link>
     </div>
     <transition name="fade">
       <TaskDetailModal
-      v-if="isVisibleTaskDetailModal"
-      :task="taskDetail"
-      @close-modal="handleCloseTaskDetailModal"
-      @delete-task="handleDeleteTask"
-      @show-edit-modal="handleShowTaskEditModal"
+        v-if="isVisibleTaskDetailModal"
+        :task="taskDetail"
+        @close-modal="handleCloseTaskDetailModal"
+        @delete-task="handleDeleteTask"
+        @show-edit-modal="handleShowTaskEditModal"
       />
     </transition>
     <transition name="fade">
@@ -85,7 +101,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["tasks"]),
+    ...mapGetters("tasks", ["tasks"]),
     todoTasks() {
       return this.tasks.filter(task => {
         return task.status == "todo"
@@ -106,7 +122,7 @@ export default {
     this.fetchTasks();
   },
   methods: {
-    ...mapActions([
+    ...mapActions("tasks", [
       "fetchTasks",
       "createTask",
       "deleteTask",

@@ -11,11 +11,11 @@ import TheHeader from 'components/TheHeader.vue'
 import TheFooter from 'components/TheFooter.vue'
 
 export default {
+  name: "TopIndex",
   components: {
     TheHeader,
     TheFooter
   },
-  name: "TopIndex",
   data(){
     return {
       title: "タスク管理アプリ"
