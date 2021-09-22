@@ -11,6 +11,7 @@ import router from '../router'
 import 'bootstrap/dist/css/bootstrap.css'
 import axios from '../plugins/axios'
 import store from '../store'
+import '../plugins/veevalidate'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios
