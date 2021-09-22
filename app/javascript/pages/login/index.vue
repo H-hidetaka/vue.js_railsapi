@@ -21,6 +21,7 @@
             class="form-control"
             placeholder="test@example.com"
           >
+          <span class="text-danger">{{ errors[0] }}</span>
         </ValidationProvider>
       </div>
       <div class="form-group text-left">
