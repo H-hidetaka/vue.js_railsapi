@@ -112,7 +112,7 @@ export default {
     ...mapGetters("tasks", ["tasks"]),
     ...mapGetters("users", ["authUser"]),
     todoTasks() {
-      return this.tasks.filter(task => {
+      return this.filteredTasks.filter(task => {
         return task.status == "todo"
       })
     },

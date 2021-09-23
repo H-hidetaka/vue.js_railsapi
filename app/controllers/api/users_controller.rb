@@ -5,19 +5,19 @@ class Api::UsersController < ApplicationController
     user = User.new(user_params)
 
     if user.save
-      render json: user
+      render json: user, methods: [:avatar_url]
     else
       render json: user.errors, status: :bad_request
     end
   end
 
   def me
-    render json: current_user
+    render json: current_user, methods: [:avatar_url]
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :name)
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, :avatar)
   end
 end
